@@ -1,0 +1,12 @@
+apply plugin: 'groovy'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.6', 'com.igormaznitsa:jbbp:1.1.0'
+    testCompile 'junit:junit:4.11'
+}
