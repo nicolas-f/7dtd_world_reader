@@ -1,3 +1,4 @@
+package fr.nettrader.driver7rg
 /*
     7 Days To Die region files driver
     Copyright (C) 2015 Nicolas Fortin
@@ -15,13 +16,13 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-import com.igormaznitsa.jbbp.JBBPParser
+
 
 /**
  * Console entry point
  */
 class Main {
     static void main(String[] args) {
-        JBBPParser parser = JBBPParser.
+
     }
 }
