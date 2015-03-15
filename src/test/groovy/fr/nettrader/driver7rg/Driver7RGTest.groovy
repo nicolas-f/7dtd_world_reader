@@ -25,7 +25,7 @@ class Driver7RGTest extends GroovyTestCase {
     void testParse() throws IOException {
         Driver7RG driver7RG = new Driver7RG();
         driver7RG.load(new File(Driver7RGTest.getResource("region_test.7rg").toURI()));
-        assertEquals(1024, driver7RG.getChunkCount())
+        assertEquals(22, driver7RG.getChunkCount())
 
     }
 }

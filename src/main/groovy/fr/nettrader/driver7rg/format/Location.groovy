@@ -17,10 +17,12 @@
 */
 package fr.nettrader.driver7rg.format
 
+import com.igormaznitsa.jbbp.mapper.Bin
+
 /**
  * Chunk location
  */
 class Location {
-    int offset;
-    short sectorCount;
+    @Bin int offset;
+    @Bin short sectorCount;
 }

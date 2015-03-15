@@ -20,25 +20,31 @@ package fr.nettrader.driver7rg
 
 import com.igormaznitsa.jbbp.JBBPParser
 import fr.nettrader.driver7rg.format.Header
+import fr.nettrader.driver7rg.format.Location
 
 /**
  * Read Write driver for 7RG files
  */
 class Driver7RG {
     private File regionFile
-    private Header header;
     private JBBPParser headerParser = JBBPParser.prepare(Driver7RG.class.getResourceAsStream("7rg-struct.c").getText());
+    private List<Location> locations = new ArrayList<>();
 
     public void load(File regionFile) throws IOException {
         this.regionFile = regionFile;
-        header = headerParser.parse(regionFile.newInputStream()).mapTo(Header.class);
+        Header header = headerParser.parse(regionFile.newInputStream()).mapTo(Header.class);
         if(!"7rg".equals(header.magic)) {
             throw new IOException("Not a 7RG file");
+        }
+        for(Location location : header.locations) {
+            if(location.offset != 0) {
+                locations.add(location)
+            }
         }
     }
 
 
     public int getChunkCount() {
-        return header.locations.length;
+        return locations.size();
     }
 }
